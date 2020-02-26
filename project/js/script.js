@@ -72,4 +72,24 @@ window.addEventListener('DOMContentLoaded', function(){
   };
   setClock('timer', deadline);
 
+  // Modal
+
+  let container = document.getElementById('about'),
+      overlay = document.querySelector('.overlay'),
+      close = document.querySelector('.popup-close');
+
+  container.addEventListener('click', function(event){
+    if (event.target.classList.contains('description-btn') || event.target.classList.contains('more')) {
+      overlay.style.display = 'block';
+      this.classList.add('more-splash');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  close.addEventListener('click', function(){
+    overlay.style.display = 'none';
+    this.classList.remove('more-splash');
+    document.body.style.overflow = '';
+  });
+
 });
